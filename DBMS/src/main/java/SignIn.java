@@ -19,9 +19,8 @@ public class SignIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request,
-HttpServletResponse response)
-		throws ServletException, IOException
-	{
+			HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 
 			// Initialize the database
@@ -30,34 +29,31 @@ HttpServletResponse response)
 			// Create a SQL query to insert data into demo table
 			// demo table consists of two columns, so two '?' is used
 			PreparedStatement st;
-			//"select * from Internship where companyname = (?)"; 
+			// "select * from Internship where companyname = (?)";
 
 			String regno = request.getParameter("registrationno");
 			String password = request.getParameter("password");
-			st = con.prepareStatement("select password from login_details where registration_no = '" + regno+"'");
+			st = con.prepareStatement("select password from login_details where registration_no = '" + regno + "'");
 			ResultSet rs = st.executeQuery();
-			if(rs!=null) {
+			if (rs != null) {
 				rs.next();
 				String opass = rs.getString(1);
-				
-				if(opass.equals(password)) {
+
+				if (opass.equals(password)) {
 					PrintWriter out = response.getWriter();
 					out.println("<html><body><b>Login Successfull"
-								+ "</b></body></html>");
-				}
-				else {
+							+ "</b></body></html>");
+				} else {
 					PrintWriter out = response.getWriter();
 					out.println("<html><body><b>Incorrect Registration Number or Password"
-								+ "</b></body></html>");
+							+ "</b></body></html>");
 				}
-			}
-			else {
+			} else {
 				PrintWriter out = response.getWriter();
 				out.println("<html><body><b>Please Register Before Sign In"
-							+ "</b></body></html>");
+						+ "</b></body></html>");
 			}
-			
-			
+
 			// For the first parameter,
 			// get the data using request object
 			// sets the data to st pointer
@@ -71,8 +67,7 @@ HttpServletResponse response)
 
 			// Get a writer pointer
 			// to display the successful result
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
