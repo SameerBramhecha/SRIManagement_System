@@ -79,3 +79,9 @@ font-weight: 600;
 select .lt{
 	text-align:center;
 }
+body{
+	background-image: url('pict.jpg');
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: 100% 100%;		
+}

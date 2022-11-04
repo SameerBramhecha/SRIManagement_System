@@ -7,9 +7,16 @@
 	align-items: center;
 	background-color:#dddddd;
 	
+	
 }me
 {
 	align-items: center;
 	background-color:#dddddd;
 	
+}
+body{
+	background-image: url('pict.jpg');
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: 100% 100%;		
 }
