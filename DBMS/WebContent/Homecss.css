@@ -1,6 +1,6 @@
 *{
 	margin:0;
-	padding:0;
+	padding:0px 0px;
 }
 .ho.home
 {
@@ -13,10 +13,4 @@
 	align-items: center;
 	background-color:#dddddd;
 	
-}
-body{
-	background-image: url('pict.jpg');
-	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-size: 100% 100%;		
 }

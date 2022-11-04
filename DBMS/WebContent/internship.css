@@ -9,40 +9,41 @@ input[type=search] {
   padding: 20px 100px;
   margin: 20px 20px;
   box-sizing: border-box;
-  /*background : transparent;*/
-  opacity : 0.6;
+  border-radius: 10px;
 }
 input[type=search]:focus {
   border: 3px solid #555;
-  opacity : 0.8;
 }
-  ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
         text-align: center;
-      }
-      :-moz-placeholder {
+}
+:-moz-placeholder {
         text-align: center;
-      }
+}
+
+
 .button{
 	background-color: rgb(0, 0, 0); /* Green */
 	align-items: center;
-  border: none;
-  color: white;
-  margin : 0 200px;
-  font-size : 20px;
-  padding: 15px 100px;
-  text-align: center;
-  text-decoration: none;
-  justify-content : center;
-  border-radius : 10px;
-  display: inline-block;
-  font-size: 16px;
+	border: none;
+	color: white;
+	margin : 0 200px;
+	font-size : 20px;
+	padding: 15px 100px;
+	text-align: center;
+	text-decoration: none;
+	justify-content : center;
+	border-radius : 15px;
+	display: inline-block;
+	font-size: 16px;
+	transition-duration:0.6s;
 }
 .button:hover {
-background-color: rgb(0, 255, 255); /*Submit Button Hover Colors*/
-transform: translateY(-2px);
+	background-color: rgb(155, 155, 155); /*Submit Button Hover Colors*/
+	transform: translateY(-2px);
 }
 input::placeholder {
-color: black;
+	color: black;
 
 }
 .input:focus {
@@ -50,11 +51,11 @@ color: black;
 }
 
 .input:not(:placeholder-shown)+ .label {
-top: -7px;
-left: 3px;
-z-index: 10;
-font-size: 14px;
-font-weight: 600;
+	top: -7px;
+	left: 3px;
+	z-index: 10;
+	font-size: 14px;
+	font-weight: 600;
 }
 
 .form:hover{
@@ -77,21 +78,15 @@ font-weight: 600;
 	position : relative;
 	text-align: left;
 	margin : 10px 20px;
-	padding: 20px 200px;
-    font-size : 20px;
-    opacity: 0.6;
-    width : 40%;
+	padding: 20px 217px;
+    font-size : 16px;
+    border-radius:10px;
+    box-sizing: border-box;
+    border: 3px solid #555;
 }
 .select:focus{
-	opacity:0.8;
+	border: 1px solid #555;
 }
 select .lt{
 	text-align:center;
-	opacity : 0.8;
-}
-body{
-	background-image: url('pict.jpg');
-	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-size: 100% 100%;		
 }

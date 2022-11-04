@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class Internship extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings({ "unused" })
 	protected void doPost(HttpServletRequest request,
 HttpServletResponse response) throws ServletException, IOException {
 		try {
@@ -23,55 +24,73 @@ HttpServletResponse response) throws ServletException, IOException {
 			Connection con = DatabaseConnection.initializeDatabase();
 
 			// Create a SQL query to insert data into demo table
-			// demo table consists of two columns, so two '?' is used
 			String cmpname = null;
 			int intyear =0 ;
 			String imonth = null;
 			int stp = 0;
-			try {
+			try{
 				cmpname = request.getParameter("compname");
+				
+			}
+			catch(Exception e) {
 				intyear = Integer.parseInt(request.getParameter("iyear"));
+			}
+			try {
+				intyear = Integer.parseInt(request.getParameter("iyear"));
+			}
+			catch(Exception e) {
+				
+			}
+			try {
 				imonth = request.getParameter("imonth");
-				stp = Integer.parseInt(request.getParameter("stp"));
+			}
+			catch(Exception e) {
+				
+			}
+			try {
+				stp  = Integer.parseInt(request.getParameter("stp1"));
 			}
 			catch(Exception e) {
 				
 			}
 			
-			
 			System.out.println(cmpname);
 			System.out.println(intyear);
 			System.out.println(imonth);
 			System.out.println(stp);
-			String s = null;
-			if(stp == 1) {
-				s = "<10000;";
+			
+			String s = "";
+			if(stp==1) {
+				s = "=0";
 			}
 			else if(stp==2) {
-				s = ">=10000 and stipend<25000;";
+				s = "<10000";
 			}
 			else if(stp==3) {
-				s = ">=25000 and stipend<50000;";
+				s = ">=10000 and stipend<25000";
 			}
 			else if(stp==4) {
-				s = ">=50000 and stipend<75000;";
+				s = ">=25000 and stipend<50000";
 			}
 			else if(stp==5) {
-				s = ">=75000 and stipend<100000;";
+				s = ">=50000 and stipend<75000";
 			}
 			else if(stp==6) {
-				s = ">=100000;";
+				s = ">=75000 and stipend<100000";
+			}
+			else if(stp==7) {
+				s = ">=100000";
 			}
 			
 			PreparedStatement st = null;	
 			ResultSet rs = null;
-			if(cmpname.equals("") && intyear==0 && imonth==null && stp == 0)
+			if(cmpname.equals("") && intyear==0 && imonth.equals("") && stp == 0)
 			{
 				//1
 				st = con.prepareStatement("select * from internship;");
 				rs = st.executeQuery();
 			}
-			else if(cmpname!=null && ((intyear==0)&& imonth==null&& stp == 0)) {
+			else if(cmpname!=null && ((intyear==0)&& imonth.equals("")&& stp == 0)) {
 				//2
 				st = con.prepareStatement("select * from internship where companyname = '" + cmpname+"';");
 				rs = st.executeQuery();
@@ -86,7 +105,7 @@ HttpServletResponse response) throws ServletException, IOException {
 				st = con.prepareStatement("select * from internship where i_month = '" + imonth +"';");
 				rs = st.executeQuery();
 			}
-			else if(cmpname.equals("") && ((intyear==0)&& imonth==null && stp == 0)) {
+			else if(cmpname.equals("") && ((intyear==0)&& imonth.equals("") && stp == 0)) {
 				//5
 				st = con.prepareStatement("select * from internship where stipend"+ s+";");
 				rs = st.executeQuery();
@@ -101,54 +120,54 @@ HttpServletResponse response) throws ServletException, IOException {
 				st = con.prepareStatement("select * from internship where i_year = "+intyear+" and i_month ='"+ imonth+"';");
 				rs = st.executeQuery();
 			}
-//			else if(cmpname.equals("") && ((intyear==0)&& imonth!=null && stp != 0)) {
-//				//8
-//				st = con.prepareStatement("select * from internship where i_month ='"+ imonth+"' and stipend"+ s+";");
-//				rs = st.executeQuery();
-//			}
-			else if(cmpname != null && intyear ==0 && imonth !=null && stp ==0)
+			else if(cmpname.equals("") && ((intyear==0)&& imonth!=null && stp != 0)) {
+				//8
+				st = con.prepareStatement("select * from internship where i_month ='"+ imonth+"' and stipend"+ s+";");
+				rs = st.executeQuery();
+			}
+			else if(cmpname != null && intyear ==0 && imonth !=null && stp == 0)
 			{
 				//9
 				st = con.prepareStatement("select * from internship where companyname= '"+ cmpname+"' and i_month ='"+ imonth+"';");
 				rs = st.executeQuery();
 			}
-			else if(cmpname != null && intyear ==0 && imonth==null && stp !=0)
+			else if(cmpname != null && intyear ==0 && imonth.equals("") && stp != 0)
 			{
 				//10
 				st = con.prepareStatement("select * from internship where companyname= '"+ cmpname+"' and stipend"+ s+";");
 				rs = st.executeQuery();
 			}
-			else if(cmpname.equals("") && intyear !=0 && imonth.equals("") && stp !=0)
+			else if(cmpname.equals("") && intyear !=0 && imonth.equals("") && stp != 0)
 			{
 				//11
 				st = con.prepareStatement("select * from internship where i_year = "+intyear+" and stipend"+ s+";");
 				rs = st.executeQuery();
 			}
-			else if(cmpname != null && intyear !=0 && imonth !=null && stp ==0)
+			else if(cmpname != null && intyear !=0 && imonth !=null && stp == 0)
 			{
 				//12
 				st = con.prepareStatement("select * from internship where companyname= '"+ cmpname +"' and i_year = '"+intyear+"' and i_month ='"+ imonth+"';");
 				rs = st.executeQuery();
 			}
-			else if(cmpname.equals("") && intyear !=0 && imonth !=null && stp !=0)
+			else if(cmpname.equals("") && intyear !=0 && imonth !=null && stp != 0)
 			{
 				//13
 				st = con.prepareStatement("select * from internship where i_year = '"+intyear+"' and i_month ='"+ imonth+"' and stipend"+ s+";");
 				rs = st.executeQuery();
 			}
-			else if(cmpname != null && intyear !=0 && imonth.equals("")&& stp !=0)
+			else if(cmpname != null && intyear !=0 && imonth.equals("")&& stp != 0)
 			{
 				//14
 				st = con.prepareStatement("select * from internship where companyname= '"+ cmpname +"' and i_year = '"+intyear+"' and stipend"+ s+";");
 				rs = st.executeQuery();
 			}
-			else if(cmpname != null && intyear ==0 && imonth !=null && stp !=0)
+			else if(cmpname != null && intyear ==0 && imonth !=null && stp != 0)
 			{
 				//15
 				st = con.prepareStatement("select * from internship where companyname= '"+ cmpname +"' and i_month ='"+ imonth+"' and stipend"+ s+";");
 				rs = st.executeQuery();
 			}
-			else if(cmpname != null && intyear !=0 && imonth !=null && stp !=0)
+			else if(cmpname != null && intyear !=0 && imonth !=null && stp != 0)
 			{
 				//16
 				st = con.prepareStatement("select * from internship where companyname= '"+ cmpname +"' and i_year = "+intyear+" and i_month ='"+ imonth+"' and stipend"+ s+";");
