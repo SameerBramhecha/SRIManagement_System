@@ -9,9 +9,12 @@ input[type=search] {
   padding: 20px 100px;
   margin: 20px 20px;
   box-sizing: border-box;
+  /*background : transparent;*/
+  opacity : 0.6;
 }
 input[type=search]:focus {
   border: 3px solid #555;
+  opacity : 0.8;
 }
   ::-webkit-input-placeholder {
         text-align: center;
@@ -30,7 +33,7 @@ input[type=search]:focus {
   text-align: center;
   text-decoration: none;
   justify-content : center;
-  
+  border-radius : 10px;
   display: inline-block;
   font-size: 16px;
 }
@@ -40,6 +43,7 @@ transform: translateY(-2px);
 }
 input::placeholder {
 color: black;
+
 }
 .input:focus {
     border: 2px solid rgb(0, 0, 0);
@@ -75,9 +79,15 @@ font-weight: 600;
 	margin : 10px 20px;
 	padding: 20px 200px;
     font-size : 20px;
+    opacity: 0.6;
+    width : 40%;
+}
+.select:focus{
+	opacity:0.8;
 }
 select .lt{
 	text-align:center;
+	opacity : 0.8;
 }
 body{
 	background-image: url('pict.jpg');
