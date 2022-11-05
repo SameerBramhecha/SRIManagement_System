@@ -152,17 +152,8 @@ public class Internship extends HttpServlet {
 			
 			
 			
-			out.println("<!DOCTYPE html>");
-			out.println("<html>");
-			out.println("<head>");
-			style(out);
-			out.println("<title>INTERNSHIP</title>");
-			out.println("<meta charset=\"utf-8\">");
-			out.println("<link rel=\"stylesheet\" href=\"internship.css\">");
-			out.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">");
-			out.println("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js\"></script>");
-			out.println("</head>");
 			printh(out);
+			printb(out);
 			out.println("<table>");
 			out.println(
 					"<tr><th>Company Name</th><th>Stipend</th><th>Internship Year</th><th>Internship Month</th></tr>");
@@ -188,7 +179,20 @@ public class Internship extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	
 	public void printh(PrintWriter out) {
+		out.println("<!DOCTYPE html>");
+		out.println("<html>");
+		out.println("<head>");
+		style(out);
+		out.println("<title>INTERNSHIP</title>");
+		out.println("<meta charset=\"utf-8\">");
+		out.println("<link rel=\"stylesheet\" href=\"internship.css\">");
+		out.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">");
+		out.println("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js\"></script>");
+		out.println("</head>");
+	}
+	public void printb(PrintWriter out) {
 		out.println("<body class = \"body\">\r\n"
 				+ "<div class=\"home\">\r\n"
 				+ "<div class=\"container mt-3\" >\r\n"
