@@ -220,7 +220,7 @@ public class Internship extends HttpServlet {
 				+ "    </li>\r\n"
 				+ "    \r\n"
 				+ "    <li class=\"nav-item\">\r\n"
-				+ "      <a class=\"nav-link active\"  href=\"#\">INTERNSHIP</a>\r\n"
+				+ "      <a class=\"nav-link active\"  href=\"internship.html\">INTERNSHIP</a>\r\n"
 				+ "    </li>\r\n"
 				+ "    \r\n"
 				+ "    <li class=\"nav-item dropdown\">\r\n"
@@ -238,14 +238,16 @@ public class Internship extends HttpServlet {
 	}
 	public void style(PrintWriter out) {
 		out.println("<style>");
-		out.println("table{s"
-				+ "	font-size : 30px;"
+		out.println("table{"
+				+ "	font-size : 20px;"
 				+ "text-align: center;"
 				+ "margin-left:auto;"
 				+ "margin-right:auto;"
-				+ "width:80%;"
-				+ "rules:all;"
-				+ "border-spacing: 0 10px;"
+				+ "width:90%;"
+				+ "border-spacing: 10px 10px;"
+				+ "}"
+				+ "td{"
+				+ "padding : 10px;"
 				+ "}");
 		out.println("</style>");
 	}
