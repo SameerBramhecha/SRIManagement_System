@@ -40,7 +40,7 @@ input[type=search]:focus {
 }
 .button:hover {
 	background-color: rgb(155, 155, 155); /*Submit Button Hover Colors*/
-	transform: translateY(-2px);
+	transform: translateY(-5px);
 }
 input::placeholder {
 	color: black;
