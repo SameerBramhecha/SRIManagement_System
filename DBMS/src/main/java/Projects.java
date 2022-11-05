@@ -77,7 +77,7 @@ public class Projects extends HttpServlet {
 		out.println("<html>");
 		out.println("<head>");
 		style(out);
-		out.println("<title>INTERNSHIP</title>");
+		out.println("<title>PROJECTS</title>");
 		out.println("<meta charset=\"utf-8\">");
 		out.println("<link rel=\"stylesheet\" href=\"internship.css\">");
 		out.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">");
