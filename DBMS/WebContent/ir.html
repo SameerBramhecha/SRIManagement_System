@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>INTERNSHIP</title>
+  <title>INSERT RECORDS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="internship.css">
@@ -18,7 +18,7 @@
   <ul class="nav nav-tabs">
   
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="Home.html">HOME</a>
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="home.html">HOME</a>
 	      <ul class="dropdown-menu">
 	        <li><a class="dropdown-item" href="trial.html">About</a></li>
 	        <li><a class="dropdown-item" href="trial.html">Details</a></li>
@@ -28,19 +28,19 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="Research.html">RESEARCH</a>
+      <a class="nav-link"  href="Research.html">RESEARCH</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link" href="Projects.html">PROJECT</a>
+      <a class="nav-link"  href="Projects.html">PROJECT</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link active" href="internship.html">INTERNSHIP</a>
+      <a class="nav-link" href="internship.html">INTERNSHIP</a>
     </li>
     
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">LOGIN</a>
+      <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">LOGIN</a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="signup.html">Register</a></li>
 	<li><a class="dropdown-item" href="signIn.html">Student Login</a></li>
@@ -51,20 +51,18 @@
 </div>
 </div>
 <br>
-<form action="./Student" method="post" class="form1" role="search" >
-<input type="text" name="sid" placeholder="ID" required>
-<input type="text" name="sname" placeholder="Name" required>
-<input type="text" name="cgpa" placeholder="CGPA" required>
-<input type="text" name="branch" placeholder="Branch" required>
-<input type="text" name="division" placeholder="Division"required>
-<input type="text" name="internship" placeholder="Internship" required>
-<input type="text" name = "projectid" placeholder="Project ID" required>
-<input type="text" name="domain" placeholder="Domain" required>
-<input type="text" name="clubname" placeholder="Clubname" required>
-<input type="text" name="researchpaper" placeholder="Research Papers" required>
-<input type="text" name="registration id" placeholder="Registration Number" required>
+<form action="./Insertdetails" method="post" class="form1" role="search" >
+
+<select class="select" name="opt" >
+	<option class = "lt1" value = "" >Records to Insert
+	<option class = "lt1" value = "1">Students
+	<option class = "lt1" value = "2">Research Papers
+	<option class = "lt1" value = "3">Internships
+	<option class = "lt1" value = "4">Projects
+
+</select>
 <br><br>
-<button class="button">Submit</button>   
+<button class="button">Search</button>
 <input class="button" type="reset" value="Reset">
 </form>
 
