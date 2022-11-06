@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -41,10 +42,8 @@ HttpServletResponse response)
 				String opass = rs.getString(1);
 				
 				if(opass.equals(password)) {
-					PrintWriter out = response.getWriter();
-					out.println("<html><body><b><form action = \"admin.html\">\r\n"
-							+ "    		<button class=\"button\">Sign In  </button><br><br></form>"
-								+ "</b></body></html>");
+					RequestDispatcher rd= request.getRequestDispatcher("admin.html");
+					rd.forward(request, response);
 				}
 				else {
 					PrintWriter out = response.getWriter();
