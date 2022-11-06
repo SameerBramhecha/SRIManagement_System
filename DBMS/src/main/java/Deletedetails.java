@@ -44,7 +44,6 @@ public class Deletedetails extends HttpServlet {
 			else if(option == 2) {
 				rd = request.getRequestDispatcher("projectdelete.html");
 				rd.forward(request, response);
-//				project(request,response, out, con);
 			}
 //			printh(out);
 //			printb(out);
