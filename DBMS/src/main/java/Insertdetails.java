@@ -38,7 +38,6 @@ public class Insertdetails extends HttpServlet {
 			if(option==1) {
 				rd = request.getRequestDispatcher("studinput.html");
 				rd.forward(request, response);
-				student(request,response, out, con);
 			}
 			else if(option == 2 ) {
 				rd = request.getRequestDispatcher("researchinput.html");
@@ -149,35 +148,7 @@ public class Insertdetails extends HttpServlet {
 		}
 	}
 	
-	
-	public void student(HttpServletRequest request,
-			HttpServletResponse response, PrintWriter out, Connection con) 
-					throws Exception{
-		int sid = Integer.parseInt(request.getParameter("sid"));
-		String sname = request.getParameter("sname");
-		double cgpa = Double.parseDouble(request.getParameter("cgpa"));
-		String branch = request.getParameter("branch");
-		String division = request.getParameter("division");
-		String intership = request.getParameter("internship");
-		int projectid = Integer.parseInt(request.getParameter("projectid"));
-		String domain = request.getParameter("domain");
-		String clubname = request.getParameter("clubname");
-		String registration_id = request.getParameter("registration id");
-		String researchpaper = request.getParameter("researchpaper");
-		
-		PreparedStatement st = con
-				.prepareStatement("call insertintostudent("+sid+",'"+sname+"',"
-		+cgpa+",'"+branch+"','"+division+"','"+intership+"',"+projectid+",'"+domain+"',"+clubname
-		+"','"+registration_id+"','"+researchpaper+"')");
-		int result = st.executeUpdate();
-		if (result != 0) {
-			out.println("<html><body><b>Successfully Inserted"
-					+ "</b></body></html>");
-		} else {
-			out.println("<html><body><b>Not Inserted"
-					+ "</b></body></html>");
-		}
-	}
+
 	
 	
 	public void printh(PrintWriter out) {
