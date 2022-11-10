@@ -56,7 +56,7 @@ public class Updatedetails extends HttpServlet {
 			
 			int result = st.executeUpdate();
 			if (result != 0) {
-				out.println("<html><body><b>Successfully Inserted"
+				out.println("<html><body><b>Successfully Updated"
 						+ "</b></body></html>");
 			} else {
 				out.println("<html><body><b>Not Inserted"

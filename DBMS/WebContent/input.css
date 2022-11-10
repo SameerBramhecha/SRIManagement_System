@@ -1,4 +1,7 @@
 @charset "ISO-8859-1";
+.body{
+    background-color: #dddddd;/*Page Background Colors*/
+}
 .form1{
 	align-items:center;
 	padding: 50px 115px;
