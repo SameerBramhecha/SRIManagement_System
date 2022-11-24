@@ -28,6 +28,7 @@ public class Projectinput extends HttpServlet {
 			String mentor = request.getParameter("mentor");
 			String description = request.getParameter("description");
 			int sid = Integer.parseInt(request.getParameter("s_id"));
+			String domain  =request.getParameter("domain");
 			// System.out.println(pid);
 			// System.out.println(title);
 			// System.out.println(mentor);
@@ -37,6 +38,8 @@ public class Projectinput extends HttpServlet {
 					.prepareStatement("call insertintoprojects(" + pid + ",'" + title + "','" + mentor + "','" +
 							description + "'," + sid + ");");
 			int result = st.executeUpdate();
+			
+			PreparedStatement st1 = con.prepareStatement("insert into project_domain values ("+pid+",'"+domain+"');");
 			if (result != 0) {
 				out.println("<html><body><b>Successfully Inserted"
 						+ "</b></body></html>");
